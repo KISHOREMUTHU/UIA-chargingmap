@@ -1,0 +1,494 @@
+
+<!-- Header Section -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Accelerated e-Mobility Revolution for India’s Transportation | NITI Aayog">
+    <!-- <script>
+        const BASE_URL = "";
+    </script> -->
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="icon" href="assets/images/new-fronend-img/eamrit-favicon.png" />
+
+    <link rel="stylesheet" href="assets/css/adminlte.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/admin-portal.css">
+    <!-- NavStyle -->
+    <link rel="stylesheet" href="assets/css/frontend-responsive.css">
+    <link rel="stylesheet" href="assets/css/frontendnavstyle.css">
+    <!-- jQuery -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;0,800;1,100;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;0,800;1,100;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500&display=swap"skiptranslate 
+        rel="stylesheet">
+    <title>evJagruthi</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXZFVXSVB3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HXZFVXSVB3');
+    </script>
+</head>
+
+<body>
+    
+<section>
+    <div class="going-electric-bg">
+        <div class="container mt-104">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="about-us-title">Charging Map </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mb-40">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <p class="ev-awareness-para ">There are more than 300 charging stations across various pockets of
+                        Bengaluru. Use the interactive charging map below which lets you see the electric vehicle
+                        charging stations set up by BESCOM in the city.</p>
+                </div>
+            </div>
+            <div class="row mt-5 mb-5">
+                <div class="col-md-12">
+                    <div class="box-body">
+                        <div id="googleMap" style="width:100%;height:600px;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<script>
+    function myMap() {
+        var tooltipcontent;
+        var locations = [
+            ["BESCOM - Devanahalli SDO", "13.2463629", "77.7138284", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", 4
+            ],
+            ["BESCOM - Hosakote SDO", " 13.0731299", "77.786843", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 5
+            ],
+            ["RTO Nelamangala", "13.0786213", "77.4257122", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 3
+            ],
+            ["BBMP Vignananagara Office", "12.9774012", "77.6791864", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 2
+            ],
+            ["RTO KasthuriNagar office", "13.004158", "77.6644813", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ["BESCOM - E6 Indiranagar SDO", "12.964612", "77.6441555", "BEVC-AC001", "6.96", "DC-001", "7.1", "CCS(DC)",
+                "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ["BDA Domlur Complex", "12.9622279", "77.63734", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ["TTMC Domlur", "12.9616849", "77.6386356", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ["BESCOM -Tannery Road", "13.0120172", "77.6168121", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ["BBMP Gottigere office", "12.99142", "77.5978495", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ["TTMC Shivajinagar", "12.9832533", "77.6030377", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ["BDA HBR layout complex", "13.0252012", "77.6278628", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM -Lingarajapuram O&M', "13.0259538", "77.6281229", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - E8 Banasawadi SDO', "13.0198216", "77.6396917", "BEVC-AC001", "6.96", "DC-001", "7.1", "CCS(DC)",
+                "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", "", 1
+            ],
+            ['BBMP Horamavu Office', "13.029055", "77.6615212", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM -Nagawara Sub Division', "13.0387975", "77.6260076", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "", 1
+            ],
+            ['BESCOM -Corporate Office', "12.9754148", "77.5885292", "BEVC-AC001", "6.96", "DC-001", "7.1", "CCS(DC)",
+                "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['KPTCL W4 Subdivsion', "12.9806094", "77.5708913", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Mahadevapura SDO', "12.9949389", "77.6993694", "BEVC-AC001", "6.96", "DC-001", "7.1", "CCS(DC)",
+                "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['BBMP Mahadevapura Office', " 12.9949003", "77.6958824", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BBMP Whitefield Office', "12.9562323", "77.7365789", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['TTMC Whitefield', "12.9769812", "77.7265754", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BBMP KR Puram Office', "13.0067964", "77.6910243", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['RTO K R Puram Office', "13.0233973", "77.7163994", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['RTO Yelahanka', "13.1510897", "77.5552685", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - C7 SDO', "13.0957022", "77.5943738", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BBMP Sahakara nagara Office', "13.0617673", "77.587217", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM -Vidyaranyapura SDO', "13.0579134", "77.5728222", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Bagalagunte O&M', "13.0693601", "77.5008814", "", "", "", "", "", "", "", "", "", 1],
+            ['TTMC Yeshawanthapura', "13.0179152", "77.556509", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - C6 Mathikere SDO', "13.0381588", "77.5578052", "BEVC-AC001", "6.96", "DC-001", "7.1", "CCS(DC)",
+                "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['BESCOM - N4 Peenya SDO', "13.0175628", "77.5071423", "BEVC-AC001", "6.96", "DC-001", "7.1",
+                "CCS(DC)", "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['BESCOM - Hegganahalli O&M', "13.0012272", "77.5203885", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['KSRTC Peenya', "13.0283599", "77.5200673", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", 1
+            ],
+            ['BESCOM - Peenya SRS O&M', "13.0319854", "77.5274445", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Shettihalli (Peenya) O&M', "13.0741439", "77.5042715", "BEVC-AC001", "6.96", "", "", "", "", "",
+                "", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Chandapura Sub Division', "12.7986676", "77.706187", "BEVC-AC001", "6.96", "", "", "", "", "",
+                "", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['KIADB Jigani I.A', "12.7984775", "77.6571755", "", "", "", "", "", "", "", "", "", "", 1],
+            ['BBMP Gottigere office', "12.8585588", "77.5893564", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['RTO Electronic City', "12.848853", "77.6915136", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BBMP Doddakanneli Office', "12.9074172", "77.6953883", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BBMP Vijaya Bank L/O (Bilekahalli)', "12.8954133", "77.6087586", "BEVC-AC001", "6.96", "", "", "", "", "",
+                "", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - HSR Division Office SDO', "12.9112537", "77.648779", "BEVC-AC001", "6.96", "DC-001", "7.1",
+                "CCS(DC)", "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['BBMP Jayanagar office', "12.9293173", " 77.5841976", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - BTM L/o O&M', " 12.9168661", "77.6103136", "BEVC-AC001", "6.96", "DC-001", "7.1", "CCS(DC)",
+                "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['BBMP Ward 177 Office (Near BoB)', "12.9089544", "77.5876268", "", "", "", "", "", "", "", "", "", "", 1],
+            ['BESCOM - Katriguppe SDO', "12.9260821", "77.547875", "BEVC-AC001", "6.96", "DC-001", "7.1", "CCS(DC)",
+                "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['BESCOM - Chikkalasandra O&M', "12.9067415", "77.5454155", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "",
+                1
+            ],
+            ['BBMP Corporation office', "13.0238752", "77.5366654", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['TTMC Shantinagar', "12.9546492", "77.5927741", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - ISRO Layout O&M', "12.8983575", "77.5571609", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Murugeshpalya S17 SDO', "12.9593389", "77.6626508", "BEVC-AC001", "6.96", "DC-001", "7.1",
+                "CCS(DC)", "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['BDA Banashankari', "12.924942", "77.5639741", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['TTMC Kengeri', "12.913781", "77.4872088", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Kumbalagodu O&M', "12.871212", "77.4424489", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Kaggalipura SDO', "12.7998442", "77.5086428", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM -RR Layout O&M', "12.9391184", "77.4930485", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['RTO Jnanabharti', "12.96131", "77.4871882", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['TTMC Vijayanagar', "12.9656494", "77.5346215", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - West Circle Office', "12.9977343", "77.540495", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Papareddy Palya O&M', "12.9652106", "77.5032157", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "",
+                1
+            ],
+            ['BESCOM -Mallathalli O&M', "12.9770261", "77.4966778", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BDA Nagarabhavi', "12.9800874", "77.5114025", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Avalahalli SDO', "12.9433953", " 77.5423661", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - Shankarapuram O&M', "12.9578334", " 77.5666144", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "",
+                1
+            ],
+            ['BESCOM - Bytarayanapura SDO', "12.9506273", "77.5404869", "BEVC-AC001", "6.96", "DC-001", "7.1",
+                "CCS(DC)", "7.77", "CHAdeMO(DC)", "7.77", "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png",
+                "assets/images/new-fronend-img/karnatka-img/4-wheeler.png", 1
+            ],
+            ['KSRTC Mysore Road Satellite', "12.952588", "77.5434393", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "", 1
+            ],
+            ['BESCOM - W7 RR Nagar O&M 20', "12.9292947", "77.5140699", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "",
+                1
+            ],
+            ['BBMP Thyagarajanagara Office', "12.932353", " 77.5635031", "BEVC-AC001", "6.96", "", "", "", "", "", "",
+                "assets/images/new-fronend-img/karnatka-img/ev-vehicle.png", "",
+                1
+            ],
+
+        ];
+
+
+        var mapProp = {
+            center: new google.maps.LatLng(12.9934931, 77.5471163),
+            zoom: 11,
+
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        map.getCenter();
+
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+
+            var infowindow = new google.maps.InfoWindow({
+                // content: tooltipcontent,
+            });
+            //     const image =
+            // "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map,
+                // icon: image,
+            });
+            if (locations[i][3] != "" && locations[i][5] != "" && locations[i][7] != "") {
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent('<div class="mappopupbox"><div class="p-2"> <h4 class="">' +
+                            locations[i][0] +
+                            '</h4><a class="direction-txt" href="https://maps.mapmyindia.com/@' +
+                            locations[i][1] + ',' + locations[i][2] +
+                            '" target="_blank">Direction <i class="pl-3 fa fa-angle-right" aria-hidden="true"></i></a><table class="chargingmaptable mt-2"><thead><tr><th>Types</th><th>Price per unit(INR)</th><th>Vehicle</th></tr></thead><tr style="color: #027202;font-weight: bold;"><td><b>' +
+                            locations[i][3] + '</b></td><td style="padding-left: 10px;">' + locations[i]
+                            [
+                                4
+                            ] + '</td><td class="d-flex align-items-center"><img src=' + locations[i][
+                                11
+                            ] +
+                            '></td></tr><tr style="color: #511874;font-weight: bold;"><td><b>' +
+                            locations[i][5] +
+                            '</b></td><td style="padding-left: 10px;">' + locations[i][6] +
+                            '</td><td class="d-flex align-items-center"><img src=' + locations[i][11] +
+                            '></td></tr><tr style="color: #00b0f0;font-weight: bold;"><td><b>' +
+                            locations[i][7] +
+                            '</b></td><td style="padding-left: 10px;">' + locations[i][8] +
+                            '</td><td class="d-flex align-items-center"><img src=' + locations[i][12] +
+                            '  class=" mr-2"></td></tr></table></div></div>');
+                        console.log(tooltipcontent);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+            if (locations[i][3] != "" && locations[i][5] != "" && locations[i][7] == "") {
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent('<div class="mappopupbox"><div class="p-2"> <h4 class="">' +
+                            locations[i][0] +
+                            '</h4><a class="direction-txt" href="https://maps.mapmyindia.com/@' + locations[i][1] + ',' + locations[i][2] + '" target="_blank">Direction <i class="pl-3 fa fa-angle-right" aria-hidden="true"></i></a><table class="chargingmaptable mt-2"><thead><tr><th>Types</th><th>Price per unit(INR)</th><th>Vehicle</th></tr></thead><tr style="color: #027202;font-weight: bold;"><td><b>' +
+                            locations[i][3] + '</b></td><td style="padding-left: 10px;">' + locations[i][
+                                4
+                            ] + '</td><td class="d-flex align-items-center"><img src=' + locations[i][11] + '></td></tr><tr style="color: #511874;font-weight: bold;"><td><b>' + locations[i][5] +
+                            '</b></td><td style="padding-left: 10px;">' + locations[i][6] +
+                            '</td><td class="d-flex align-items-center"><img src=' + locations[i][11] + '></td></tr></table></div></div>');
+                        console.log(tooltipcontent);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+            if (locations[i][3] != "" && locations[i][5] == "" && locations[i][7] == "") {
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent('<div class="mappopupbox"><div class="p-2"> <h4 class="">' +
+                            locations[i][0] +
+                            '</h4><a class="direction-txt" href="https://maps.mapmyindia.com/@' + locations[i][1] + ',' + locations[i][2] + '" target="_blank">Direction <i class="pl-3 fa fa-angle-right" aria-hidden="true"></i></a><table class="chargingmaptable mt-2"><thead><tr><th>Types</th><th>Price per unit(INR)</th><th>Vehicle</th></tr></thead><tr style="color: #027202;font-weight: bold;"><td><b>' +
+                            locations[i][3] + '</b></td><td style="padding-left: 10px;">' + locations[i][
+                                4
+                            ] + '</td><td class="d-flex align-items-center"><img src=' + locations[i][11] + '></td></tr></table></div></div>');
+                        console.log(tooltipcontent);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+            if (locations[i][3] == "" && locations[i][5] == "" && locations[i][7] == "") {
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent('<div class="mappopupbox"><div class="p-2"> <h4 class="">' +
+                            locations[i][0] +
+                            '</h4><a class="direction-txt" href="https://maps.mapmyindia.com/@' + locations[i][1] + ',' + locations[i][2] + '" target="_blank">Direction <i class="pl-3 fa fa-angle-right" aria-hidden="true"></i></a></div></div>');
+                        console.log(tooltipcontent);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+
+        }
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVgZSVkBFfK1QmY9lkvNW6Yt-8ayV2RXs&callback=myMap">
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+    <!-- Footer Section -->
+   
+    
+
+    <!-- <script src="assets/js/jquery.min.js"></script> -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script> 
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/customscript.js"></script>
+    <script src="assets/js/responsivevoice.js"></script>
+    
+    <script>
+// Color
+        function color(colorcontrast) {
+            var a = getComputedStyle(colorcontrast);
+            var b = a.backgroundColor;
+            document.getElementsByTagName("body")[0].style.backgroundColor = b;
+        }
+    </script>
+    <script>
+        var $affectedElements = $("body,p,li,h1,h2,h3,h4,h5,h6,a,span,tr,td,th ");
+
+        // Storing the original size in a data attribute so size can be reset
+        $affectedElements.each(function() {
+            var $this = $(this);
+            $this.data("orig-size", $this.css("font-size"));
+        });
+
+        $("#btn-increase").click(function() {
+            changeFontSize(1);
+        })
+
+        $("#btn-decrease").click(function() {
+            changeFontSize(-1);
+        })
+
+        $("#btn-orig").click(function() {
+            $affectedElements.each(function() {
+                var $this = $(this);
+                $this.css("font-size", $this.data("orig-size"));
+            });
+        })
+
+        function changeFontSize(direction) {
+            $affectedElements.each(function() {
+                var $this = $(this);
+                $this.css("font-size", parseInt($this.css("font-size")) + direction);
+            });
+        }
+    </script>
+    
+    <script>
+        
+/*----------- search toogle js-------*/
+$('.search-toggle').addClass('closed');
+
+$('.search-toggle .search-icon').click(function(e) {
+  if ($('.search-toggle').hasClass('closed')) {
+    $('.search-toggle').removeClass('closed').addClass('opened');
+    $('.search-toggle, .search-container').addClass('opened');
+    $('#search-terms').focus();
+  } else {
+    $('.search-toggle').removeClass('opened').addClass('closed');
+    $('.search-toggle, .search-container').removeClass('opened');
+  }
+});
+
+
+    </script>
+        <script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'kn,en'
+    }, 'google_translate_element');
+}
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+</body>
+
+</html>
